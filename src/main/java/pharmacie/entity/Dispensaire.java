@@ -3,6 +3,8 @@ package pharmacie.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +23,7 @@ public class Dispensaire {
     @NonNull @NotBlank
     private String region;
 
-    @OneToMany(mappedBy = "dispensaire")
-    @ToString.Exclude
-    private List<Commande> commandes;
+    @OneToMany(mappedBy = "dispensaire", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Commande> commandes = new ArrayList<>();
+    
 }

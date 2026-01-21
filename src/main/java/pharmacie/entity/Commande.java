@@ -22,7 +22,6 @@ public class Commande {
     @NonNull
     private Dispensaire dispensaire;
 
-    @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
+    @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)    @ToString.Exclude
     private List<Ligne> lignes;
 }
